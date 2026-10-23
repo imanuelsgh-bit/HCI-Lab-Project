@@ -1,0 +1,300 @@
+/* ===== Basics ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #141414;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+/* ===== Livery stripe (papaya + blue) ===== */
+.stripe {
+    height: 10px;
+    background: linear-gradient(90deg, #FF8000 0 72%, #47C7FC 72% 100%);
+}
+/* ===== Header ===== */
+.hero {
+    min-height: 80vh;
+    background: #141414;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+/* ===== Hero slideshow (CSS only) ===== */
+.slideshow {
+    position: absolute;
+    inset: 0;
+}
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fade 15s infinite;
+}
+.slide:nth-child(2) {
+    animation-delay: 5s;
+}
+.slide:nth-child(3) {
+    animation-delay: 10s;
+}
+/* dark overlay so the white text stays readable */
+.slideshow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 20, 20, 0.6);
+}
+/* keep nav and text above the slideshow */
+.nav,
+.hero-body {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    padding: 2em 5%;
+}
+.hero-content {
+    flex: 1 1 22em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+    padding: 1em 5%;
+}
+.logo {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8em;
+    padding: 0 5%;
+}
+.hero h1 {
+    font-size: clamp(2em, 6vw, 3em);
+    line-height: 1.2;
+    max-width: 14em;
+}
+.tagline {
+    font-size: 1.3em;
+}
+.btn {
+    background: #FF8000;
+    color: #141414;
+    font-weight: bold;
+    padding: 0.7em 1.8em;
+    border-radius: 2em;
+    align-self: flex-start;
+}
+/* ===== Sections ===== */
+.section {
+    padding: 4em 5%;
+}
+.alt {
+    background: #FFF3E6;
+}
+.section h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 2em;
+    color: #141414;
+}
+/* ===== About ===== */
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    max-width: 60em;
+    margin: 0 auto;
+}
+.avatar {
+    width: 11em; /* width of the avatar container using em as the unit, granting a more flexible layout */
+    height: 11em; /* height of the avatar container using em as the unit, granting a more flexible layout */
+    max-width: 100%;
+    border-radius: 50%;
+    border: 6px solid #FF8000;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+.about-text {
+    flex: 1 1 20em; 
+    font-size: 1.1em;
+}
+.about-text p + p {
+    margin-top: 1em;
+}
+/* ===== Projects ===== */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    max-width: 75em;
+    margin: 0 auto;
+}
+.card {
+    flex: 1 1 16em;
+    max-width: 22em;
+    background: white;
+    padding: 1.5em;
+    border-radius: 0.8em;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+.card img {
+    width: 100%;
+    height: 12em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+}
+.card h3 {
+    margin-bottom: 0.3em;
+}
+.card p {
+    margin-bottom: 1em;
+}
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-bottom: 1em;
+}
+.tags li {
+    background: #FFF3E6;
+    color: #141414;
+    font-size: 0.8em;
+    padding: 0.2em 0.9em;
+    border-radius: 1em;
+}
+.project-link {
+    font-weight: bold;
+    border-bottom: 3px solid #FF8000;
+}
+/* ===== Skills ===== */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    max-width: 45em;
+    margin: 0 auto;
+}
+.skills li {
+    background: #141414;
+    color: white;
+    padding: 0.6em 1.5em;
+    border-radius: 2em;
+}
+/* ===== Contact ===== */
+.contact-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+}
+.contact-list a {
+    font-weight: bold;
+    font-size: 1.1em;
+    border-bottom: 3px solid #FF8000;
+}
+/* ===== Footer ===== */
+.footer {
+    background: #141414;
+    color: white;
+    text-align: center;
+    padding: 1.2em;
+    font-size: 0.9em;
+}
+/* ===== Hover & transitions ===== */
+.nav-links a,
+.btn,
+.card,
+.skills li,
+.project-link,
+.contact-list a {
+    transition: all 0.3s;
+}
+.nav-links a:hover {
+    color: #FF8000;
+}
+.project-link:hover,
+.contact-list a:hover {
+    border-bottom-color: #47C7FC;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(255, 128, 0, 0.45);
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+.skills li:hover {
+    background: #FF8000;
+    color: #141414;
+}
+/* ===== Hero slideshow (CSS only) ===== */
+.slideshow {
+    position: relative;
+    flex: 1 1 22em;
+    max-width: 36em;
+    aspect-ratio: 16 / 10;
+    border: 4px solid #FF8000;
+    border-radius: 1em;
+    overflow: hidden;
+}
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: fade 15s infinite;
+}
+.slide:nth-child(2) {
+    animation-delay: 5s;
+}
+.slide:nth-child(3) {
+    animation-delay: 10s;
+}
+@keyframes fade {
+    0%   { opacity: 0; }
+    6%   { opacity: 1; }
+    33%  { opacity: 1; }
+    39%  { opacity: 0; }
+    100% { opacity: 0; }
+}
